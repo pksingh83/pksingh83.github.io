@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Experience from '../components/Experience.astro';
+import Skills from '../components/Skills.astro';
+import Projects from '../components/Projects.astro';
+import Education from '../components/Education.astro';
+import Contact from '../components/Contact.astro';
+import { loadResume, publicView } from '../lib/resume';
+
+const resume = publicView(loadResume());
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: resume.name,
+  jobTitle: resume.title,
+  address: { '@type': 'PostalAddress', addressLocality: 'Mumbai', addressCountry: 'IN' },
+  sameAs: [resume.contact.linkedin],
+};
+---
+
+<Layout
+  title={`${resume.name} | ${resume.title}`}
+  description="Senior Technical Manager and Full-Stack .NET Architect with 20+ years building scalable healthcare, pharma and fintech software on Azure and AWS."
+  name={resume.name}
+  jsonLd={jsonLd}
+>
+  <main id="main">
+    <Hero resume={resume} />
+    <About resume={resume} />
+    <Experience roles={resume.experience} />
+    <Skills skills={resume.skills} />
+    <Projects projects={resume.projects} />
+    <Education education={resume.education} certifications={resume.certifications} />
+    <Contact resume={resume} />
+  </main>
+</Layout>

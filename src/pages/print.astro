@@ -1,0 +1,71 @@
+---
+import { loadResume, printView } from '../lib/resume';
+
+const resume = printView(loadResume());
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>{resume.name} | Resume</title>
+    <style is:inline>
+      @page { size: A4; margin: 13mm 14mm; }
+      * { box-sizing: border-box; }
+      body { margin: 0; font: 9.5pt/1.4 ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; color: #1f2430; }
+      h1 { margin: 0; font-size: 21pt; }
+      h2 { margin: 12pt 0 4pt; padding-bottom: 2pt; border-bottom: 0.75pt solid #9aa0b4; font-size: 10.5pt; letter-spacing: 0.06em; text-transform: uppercase; }
+      h3 { margin: 7pt 0 1pt; font-size: 10pt; }
+      p { margin: 2pt 0; }
+      ul { margin: 2pt 0 0; padding-left: 14pt; }
+      li { margin: 1pt 0; }
+      .title { margin: 1pt 0 3pt; font-size: 11.5pt; color: #4a3fa8; }
+      .meta, .dates { color: #555b6e; }
+      .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12pt; }
+      h2 { break-after: avoid; }
+      article { break-inside: avoid; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>{resume.name}</h1>
+      <p class="title">{resume.title}</p>
+      <p class="meta">{resume.location} · {resume.contact.email} · {resume.contact.linkedin.replace('https://www.', '')}</p>
+    </header>
+
+    <h2>Summary</h2>
+    {resume.about.map((paragraph) => <p>{paragraph}</p>)}
+
+    <h2>Experience</h2>
+    {
+      resume.experience.map((role) => (
+        <article>
+          <div class="row">
+            <h3>{role.role} · {role.company}</h3>
+            <span class="dates">{role.start} – {role.end}</span>
+          </div>
+          <ul>{role.bullets.map((bullet) => <li>{bullet}</li>)}</ul>
+        </article>
+      ))
+    }
+
+    <h2>Skills</h2>
+    {resume.skills.map((skill) => <p><strong>{skill.group}:</strong> {skill.items.join(', ')}</p>)}
+
+    <h2>Key projects</h2>
+    {
+      resume.projects.map((project) => (
+        <article>
+          <h3>{project.name}</h3>
+          <p>{project.problem} {project.role} {project.result}</p>
+          <p class="meta">Stack: {project.stack.join(', ')}</p>
+        </article>
+      ))
+    }
+
+    <h2>Education and certification</h2>
+    {resume.certifications.map((cert) => <p><strong>{cert.name}</strong>, {cert.issuer}, {cert.date}</p>)}
+    {resume.education.map((item) => <p><strong>{item.degree}</strong>, {item.school}, {item.year}</p>)}
+  </body>
+</html>

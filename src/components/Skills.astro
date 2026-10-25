@@ -1,0 +1,28 @@
+---
+import Section from './Section.astro';
+import type { Resume } from '../lib/resume';
+
+interface Props {
+  skills: Resume['skills'];
+}
+const { skills } = Astro.props;
+---
+
+<Section id="skills" title="skills">
+  <dl class="m-0 grid gap-6 sm:grid-cols-2">
+    {
+      skills.map((skill) => (
+        <div>
+          <dt class="mono text-sm text-accent-2">{skill.group}</dt>
+          <dd class="m-0 mt-2">
+            <ul class="m-0 flex list-none flex-wrap gap-2 p-0">
+              {skill.items.map((item) => (
+                <li class="chip card px-2.5 py-1">{item}</li>
+              ))}
+            </ul>
+          </dd>
+        </div>
+      ))
+    }
+  </dl>
+</Section>

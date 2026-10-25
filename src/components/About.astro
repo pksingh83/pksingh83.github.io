@@ -1,0 +1,25 @@
+---
+import Section from './Section.astro';
+import type { Resume } from '../lib/resume';
+
+interface Props {
+  resume: Resume;
+}
+const { resume } = Astro.props;
+const initials = resume.name
+  .split(' ')
+  .map((part) => part[0])
+  .join('');
+---
+
+<Section id="about" title="about">
+  <div class="grid gap-8 sm:grid-cols-[9rem_1fr] sm:items-start">
+    <div aria-hidden="true" class="mono card flex h-32 w-32 items-center justify-center rounded-full text-3xl text-accent">
+      {initials}
+    </div>
+    <div class="max-w-[65ch]">
+      {resume.about.map((paragraph) => <p class="mt-0">{paragraph}</p>)}
+      <p class="mono mb-0 text-sm text-muted">{resume.location}</p>
+    </div>
+  </div>
+</Section>

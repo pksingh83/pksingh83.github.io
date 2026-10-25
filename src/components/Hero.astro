@@ -1,0 +1,23 @@
+---
+import type { Resume } from '../lib/resume';
+
+interface Props {
+  resume: Resume;
+}
+const { resume } = Astro.props;
+---
+
+<section id="hero" aria-labelledby="hero-title" class="relative overflow-hidden">
+  <div aria-hidden="true" class="hero-glow pointer-events-none absolute inset-0"></div>
+  <div class="relative mx-auto max-w-3xl px-4 py-24 text-center sm:px-6 sm:py-32">
+    <p class="mono m-0 text-sm text-muted">
+      <span class="text-accent">$ whoami</span> → {resume.name}
+    </p>
+    <h1 id="hero-title" class="mt-5 text-[clamp(2rem,5vw,3.5rem)]">{resume.title}</h1>
+    <p class="mx-auto mt-5 max-w-xl text-lg text-muted">{resume.pitch}</p>
+    <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+      <a href={`mailto:${resume.contact.email}`} class="btn btn-primary">Get in touch</a>
+      <a href="/Prashant-Kumar-Resume.pdf" class="btn">Download resume</a>
+    </div>
+  </div>
+</section>

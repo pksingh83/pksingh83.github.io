@@ -1,0 +1,31 @@
+<button
+  id="theme-toggle"
+  type="button"
+  class="tool-btn"
+  aria-label="Theme: dark. Switch theme"
+>
+  dark
+</button>
+
+<script>
+  const order = ['dark', 'light', 'system'];
+  const button = document.getElementById('theme-toggle') as HTMLButtonElement;
+  const root = document.documentElement;
+
+  const render = () => {
+    const theme = root.dataset.theme ?? 'dark';
+    button.textContent = theme === 'system' ? 'auto' : theme;
+    button.setAttribute('aria-label', `Theme: ${theme}. Switch theme`);
+  };
+
+  button.addEventListener('click', () => {
+    const next = order[(order.indexOf(root.dataset.theme ?? 'dark') + 1) % order.length];
+    root.dataset.theme = next;
+    try {
+      localStorage.setItem('theme', next);
+    } catch {}
+    render();
+  });
+
+  render();
+</script>

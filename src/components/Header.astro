@@ -1,0 +1,31 @@
+---
+import Palette from './Palette.astro';
+import ThemeToggle from './ThemeToggle.astro';
+
+const links = [
+  { href: '#about', label: 'About' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#contact', label: 'Contact' },
+];
+---
+
+<header class="site-header sticky top-0 z-40">
+  <div class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+    <a href="#hero" class="mono text-lg text-accent no-underline" aria-label="Back to top">pk</a>
+    <nav aria-label="Sections" class="hidden gap-5 sm:flex">
+      {
+        links.map((link) => (
+          <a href={link.href} class="mono text-sm text-muted no-underline">
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+    <div class="flex items-center gap-2">
+      <Palette />
+      <ThemeToggle />
+    </div>
+  </div>
+</header>

@@ -1,0 +1,83 @@
+name: "Prashant Kumar"
+title: "Senior Technical Manager & Full-Stack .NET Architect"
+pitch: "I lead engineering teams and build .NET and Azure systems, from pharma label platforms to AI-driven medical coding."
+about:
+  - "I've spent 20+ years designing and delivering scalable software across healthcare, pharma, mortgage, accounts payable and subscription management. I lead cross-functional teams, mentor engineers and turn complex business requirements into technical strategy."
+  - "I work hands-on across the stack, from .NET 8 APIs to Angular front ends, and I use AI agents in the delivery process for pull request review and security checks. Based in Mumbai, India."
+location: "Mumbai, India"
+contact:
+  email: "prashant.mec@gmail.com"
+  linkedin: "https://www.linkedin.com/in/prashantk83/"
+
+experience:
+  - company: "NextGen Invent, a Straive company"
+    role: "Senior Technical Manager"
+    start: "Apr 2025"
+    end: "Present"
+    bullets:
+      - "Lead full-stack development of DocLabel, a pharmaceutical label management platform covering search, comparison, annotation, export and regulatory data."
+      - "Architected a .NET 8 Web API of 60+ RESTful service modules, with an Angular front end for document viewing and collaborative review."
+      - "Added Elasticsearch full-text search across large label datasets, with AWS S3 document storage and SQL Server and PostgreSQL data access."
+      - "Built a multi-region NestJS pipeline that imports labels from several regulatory sources."
+      - "Containerized services with Docker and run CI/CD on Jenkins."
+      - "Brought AI agents into the SDLC for pull request review, API refactoring and OWASP Top 10 review, cutting manual effort and turnaround time."
+  - company: "NDS InfoServ (a division of AEG Pvt Ltd)"
+    role: "Senior Programmer"
+    start: "Aug 2006"
+    end: "Sep 2024"
+    bullets:
+      - "Led end-to-end development and deployment of enterprise applications across healthcare, mortgage and accounts payable."
+      - "Architected microservices on Azure App Services and Azure SQL Database for availability and scale."
+      - "Built Python and FastAPI automation for OCR document processing and EOB (Explanation of Benefits) handling in healthcare systems."
+      - "Integrated MedBERT-powered medical coding and OCR data extraction, reducing manual effort by 40%."
+      - "Introduced Agile and Scrum practices, and mentored engineers on best practices in development, deployment and DevOps."
+  - company: "PCS Technology Ltd"
+    role: "System Executive"
+    start: "Aug 2005"
+    end: "Jan 2006"
+    pdfOnly: true
+    bullets:
+      - "Implemented INLIAS, an insurance application, across General Insurance Company branches and trained staff."
+
+skills:
+  - group: "Languages and frameworks"
+    items: ["C#", ".NET 8", "ASP.NET Core", "Angular", "NestJS", "React", "Python", "FastAPI"]
+  - group: "Architecture"
+    items: ["Microservices", "REST APIs", "System design", "Full-stack development"]
+  - group: "Cloud"
+    items: ["Azure App Service", "Azure SQL Database", "Azure Service Bus", "Azure Event Grid", "Azure Functions", "Azure DevOps", "AWS S3"]
+  - group: "Data and search"
+    items: ["SQL Server", "PostgreSQL", "Oracle", "MongoDB", "Redis", "Elasticsearch", "Entity Framework"]
+  - group: "DevOps"
+    items: ["Docker", "Jenkins", "CI/CD", "Git"]
+  - group: "AI and automation"
+    items: ["Agentic AI engineering", "OCR (Doctr, Tesseract)", "Workflow automation"]
+  - group: "Ways of working"
+    items: ["Agile", "Scrum", "Waterfall", "Team leadership", "Mentoring"]
+
+projects:
+  - name: "DocLabel"
+    problem: "Pharmaceutical teams need to search, compare and annotate large volumes of regulatory labels."
+    role: "Led the full-stack build and the team."
+    stack: [".NET 8", "Angular", "NestJS", "Elasticsearch", "SQL Server", "PostgreSQL", "AWS S3", "Docker", "Jenkins"]
+    result: "60+ API modules, full-text search over large label datasets, and AI-assisted code review in the delivery pipeline."
+  - name: "ProviderEdge (revenue cycle management)"
+    problem: "A US healthcare client needed to manage claim denials, appeals and accounts-receivable follow-up."
+    role: "Designed and developed the solution and led its deployment to Azure."
+    stack: ["C#", "ASP.NET Core", "SQL Server", "Angular", "Azure App Services", "Azure SQL", "Azure DevOps"]
+    result: "Automated denial workflows for faster resolution and better revenue cycle efficiency."
+  - name: "Autonomous Medical Coding"
+    problem: "Manual medical coding was slow and error-prone."
+    role: "Led the team, directed data collection and preprocessing, and built the APIs."
+    stack: ["Python", "FastAPI", "SQL Server", "MedBERT", "Angular"]
+    result: "Automated coding workflows with less manual intervention and fewer errors, and a 40% reduction in manual effort."
+
+education:
+  - degree: "MBA (e-Commerce), Integrated 5-Year Program"
+    school: "IMS, Devi Ahilya Vishwavidyalaya"
+    year: "2005"
+
+certifications:
+  - name: "Microsoft Certified: Azure Developer Associate"
+    issuer: "Microsoft"
+    date: "Oct 2025"

@@ -1,0 +1,35 @@
+---
+import Section from './Section.astro';
+import type { Resume } from '../lib/resume';
+
+interface Props {
+  education: Resume['education'];
+  certifications: Resume['certifications'];
+}
+const { education, certifications } = Astro.props;
+---
+
+<Section id="education" title="education">
+  <ul class="m-0 grid list-none gap-5 p-0">
+    {
+      certifications.map((cert) => (
+        <li>
+          <p class="m-0 font-medium">{cert.name}</p>
+          <p class="mono m-0 text-sm text-muted">
+            {cert.issuer} · {cert.date}
+          </p>
+        </li>
+      ))
+    }
+    {
+      education.map((item) => (
+        <li>
+          <p class="m-0 font-medium">{item.degree}</p>
+          <p class="mono m-0 text-sm text-muted">
+            {item.school} · {item.year}
+          </p>
+        </li>
+      ))
+    }
+  </ul>
+</Section>

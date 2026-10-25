@@ -1,0 +1,31 @@
+---
+import Section from './Section.astro';
+import type { Resume } from '../lib/resume';
+
+interface Props {
+  roles: Resume['experience'];
+}
+const { roles } = Astro.props;
+---
+
+<Section id="experience" title="experience">
+  <div class="grid gap-10">
+    {
+      roles.map((role) => (
+        <article class="grid gap-3 sm:grid-cols-[11rem_1fr] sm:gap-8">
+          <p class="mono m-0 text-sm text-muted">
+            {role.start} – {role.end}
+          </p>
+          <div>
+            <h3 class="m-0 text-lg">
+              {role.role} · {role.company}
+            </h3>
+            <ul class="mt-3 grid list-disc gap-2 pl-5">
+              {role.bullets.map((bullet) => <li>{bullet}</li>)}
+            </ul>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</Section>

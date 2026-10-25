@@ -1,0 +1,46 @@
+---
+import Section from './Section.astro';
+import type { Resume } from '../lib/resume';
+
+interface Props {
+  projects: Resume['projects'];
+}
+const { projects } = Astro.props;
+const label = 'mono text-xs uppercase tracking-wide text-accent-2';
+---
+
+<Section id="projects" title="projects">
+  <div class="grid gap-6 md:grid-cols-3">
+    {
+      projects.map((project) => (
+        <article class="card rounded-xl p-5">
+          <h3 class="m-0 text-lg">{project.name}</h3>
+          <dl class="mt-4 grid gap-3 text-[0.95rem]">
+            <div>
+              <dt class={label}>Problem</dt>
+              <dd class="m-0">{project.problem}</dd>
+            </div>
+            <div>
+              <dt class={label}>My role</dt>
+              <dd class="m-0">{project.role}</dd>
+            </div>
+            <div>
+              <dt class={label}>Stack</dt>
+              <dd class="m-0">
+                <ul class="m-0 flex list-none flex-wrap gap-1.5 p-0">
+                  {project.stack.map((tech) => (
+                    <li class="chip px-2 py-0.5 text-muted">{tech}</li>
+                  ))}
+                </ul>
+              </dd>
+            </div>
+            <div>
+              <dt class={label}>Result</dt>
+              <dd class="m-0">{project.result}</dd>
+            </div>
+          </dl>
+        </article>
+      ))
+    }
+  </div>
+</Section>

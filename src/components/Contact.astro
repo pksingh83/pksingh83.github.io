@@ -1,0 +1,26 @@
+---
+import Section from './Section.astro';
+import type { Resume } from '../lib/resume';
+
+interface Props {
+  resume: Resume;
+}
+const { resume } = Astro.props;
+---
+
+<Section id="contact" title="contact">
+  <div class="max-w-[65ch]">
+    <p class="mt-0">I'm happy to talk about engineering leadership, architecture or .NET and Azure work.</p>
+    <ul class="m-0 grid list-none gap-3 p-0">
+      <li>
+        <a href={`mailto:${resume.contact.email}`}>{resume.contact.email}</a>
+      </li>
+      <li>
+        <a href={resume.contact.linkedin} rel="noopener noreferrer" target="_blank">LinkedIn</a>
+      </li>
+      <li>
+        <a href="/Prashant-Kumar-Resume.pdf">Download resume (PDF)</a>
+      </li>
+    </ul>
+  </div>
+</Section>
